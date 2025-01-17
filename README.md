@@ -1,4 +1,4 @@
 # Data handling assesment
 
-Week 1 assessment
+Week 1 assesment
 ![Exercise](exercise.jpg)
