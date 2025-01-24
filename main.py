@@ -8,8 +8,10 @@ def main():
             processor.remove_duplicates()
             processor.ensure_data_types()
             processor.drop_null_columns()
-            processor.sort_columns()
+            processor.sort_columns() 
+            processor.remove_special_characters()
             processor.groupby()
+            processor.rename_column_name()
             print(processor.df)
         else:
             print("Data loading failed. Exiting.")

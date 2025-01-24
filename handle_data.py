@@ -1,4 +1,5 @@
 
+import re
 import pandas as pd
 
 class DataProcessor(object):
@@ -53,5 +54,15 @@ class DataProcessor(object):
         """Groups the dataframe by category and material, calculates the mean price for each group, and resets the index."""
         self.df= self.df.groupby(['Category', 'Material']).agg({'Price': 'mean'}).reset_index()
 
+    def rename_column_name(self):
+        """Renames a specific column."""
+        self.df=self.df.rename(columns={'Price': 'AveragePrice'})
 
 
+    def remove_special_characters(self):
+        """Removes special characters from column Category names."""
+        def apply(column):
+            cleaned_text = re.sub(r'[^\w]', '', column)
+            return cleaned_text
+
+        self.df['Category'] = self.df['Category'].apply(apply)
